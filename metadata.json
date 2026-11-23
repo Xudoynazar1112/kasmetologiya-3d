@@ -1,0 +1,6 @@
+{
+  "name": "Dr. Dilnoza Cosmetologist",
+  "description": "Dr. Dilnoza Cosmetologist — tibbiy kosmetologiya klinikasi. Sog‘lom, sof va yosh ko‘rinishdagi teri uchun zamonaviy lazer, RF-lifting va individual estetik muolajalar.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
