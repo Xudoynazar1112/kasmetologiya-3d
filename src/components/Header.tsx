@@ -22,7 +22,7 @@ export function Header({ activeSection, scrollPercent, onOpenBooking }: HeaderPr
 
   return (
     <header className="fixed top-0 left-0 right-0 z-40 bg-[#0D060B]/92 border-b border-[#F4A5C0]/12">
-      <div className="mx-auto max-w-[1240px] px-5 sm:px-8 h-[68px] flex items-center justify-between gap-8">
+      <div className="mx-auto max-w-[1200px] px-4 sm:px-8 h-[60px] sm:h-[68px] flex items-center justify-between gap-6 sm:gap-8">
         {/* Zone 1: Single-line Brand Wordmark */}
         <a
           href="#asosiy"
@@ -30,10 +30,10 @@ export function Header({ activeSection, scrollPercent, onOpenBooking }: HeaderPr
             e.preventDefault();
             handleNavClick('asosiy');
           }}
-          className="flex items-center gap-2.5 text-[#F9EEF3] hover:text-[#F4A5C0] transition-colors whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E86B94] rounded-sm"
+          className="flex items-center gap-2 text-[#F9EEF3] hover:text-[#F4A5C0] transition-colors whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E86B94] rounded-sm"
         >
           <LotusMark className="w-7 h-5 text-[#E5C185] shrink-0" />
-          <span className="font-display text-[22px] font-semibold tracking-tight leading-none">
+          <span className="font-display text-[21px] sm:text-[23px] font-semibold tracking-tight leading-none">
             Dr. Dilnoza
           </span>
         </a>
@@ -69,12 +69,12 @@ export function Header({ activeSection, scrollPercent, onOpenBooking }: HeaderPr
           })}
         </nav>
 
-        {/* Zone 3: Single primary CTA + mobile drawer button */}
-        <div className="flex items-center gap-3 shrink-0">
+        {/* Zone 3: Single primary CTA + mobile menu trigger */}
+        <div className="flex items-center gap-2.5 shrink-0">
           <button
             type="button"
             onClick={() => onOpenBooking()}
-            className="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-[13px] font-semibold text-[#14070F] bg-[#E86B94] hover:bg-[#F182A7] active:scale-[0.98] rounded-md transition-all duration-150 whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F4A5C0] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D060B]"
+            className="inline-flex items-center justify-center px-4 sm:px-5 py-2.5 text-[12.5px] sm:text-[13px] font-semibold text-[#14070F] bg-[#E86B94] hover:bg-[#F182A7] active:scale-[0.98] rounded-md transition-all duration-150 whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F4A5C0]"
           >
             Qabulga yozilish
           </button>
@@ -101,7 +101,7 @@ export function Header({ activeSection, scrollPercent, onOpenBooking }: HeaderPr
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#140811] border-b border-[#F4A5C0]/15 px-5 py-5 space-y-2">
+        <div className="md:hidden bg-[#140811] border-b border-[#F4A5C0]/15 px-5 py-4 space-y-1">
           {NAV_LINKS.map((link) => {
             const isActive = activeSection === link.id;
             return (
@@ -112,26 +112,14 @@ export function Header({ activeSection, scrollPercent, onOpenBooking }: HeaderPr
                   e.preventDefault();
                   handleNavClick(link.id);
                 }}
-                className={`block py-2.5 text-[15px] font-medium border-b border-[#F4A5C0]/8 transition-colors ${
-                  isActive ? 'text-[#F4A5C0]' : 'text-[#F9EEF3]/85 hover:text-[#F4A5C0]'
+                className={`flex items-center min-h-[44px] text-[15px] font-medium border-b border-[#F4A5C0]/8 last:border-b-0 transition-colors ${
+                  isActive ? 'text-[#F4A5C0]' : 'text-[#F9EEF3]/90 hover:text-[#F4A5C0]'
                 }`}
               >
                 {link.label}
               </a>
             );
           })}
-          <div className="pt-3">
-            <button
-              type="button"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenBooking();
-              }}
-              className="w-full py-3 px-4 text-[14px] font-semibold text-[#14070F] bg-[#E86B94] hover:bg-[#F182A7] rounded-md transition-colors cursor-pointer"
-            >
-              Qabulga yozilish
-            </button>
-          </div>
         </div>
       )}
     </header>
